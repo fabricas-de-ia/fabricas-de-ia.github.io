@@ -56,7 +56,7 @@ No **GHES Management Console**:
 - Habilitar logs/auditoria e retenção centralizada.
 - Configurar backup/restore com GitHub Backup Utilities.
 - Definir política de atualização do GHES (janela mensal/trimestral).
-- Não armazenar chaves públicas/sensíveis em documentação pública.
+- Não armazenar chaves privadas, tokens, senhas ou outros segredos em documentação pública.
 
 ### 5) Piloto e validação
 
