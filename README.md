@@ -7,11 +7,13 @@ Este repositório agora inclui um guia rápido para finalizar a configuração d
 ### 1) Validar pré-requisitos de infraestrutura
 
 - Confirmar DNS público para o GHES (ex.: `github.seudominio.com`) apontando para IP público da VM/LB.
-- Abrir apenas portas necessárias no NSG:
+- Abrir apenas portas necessárias no NSG para tráfego de entrada:
   - `22/tcp` (admin via SSH, restrito por IP)
   - `80/tcp` (apenas para redirect, opcional)
   - `443/tcp` (acesso web/API)
-  - `25/tcp` (somente se usar SMTP direto)
+  - `8443/tcp` (Management Console para setup/administração, restrita por IP e/ou VPN)
+- Garantir conectividade de saída para serviços externos necessários:
+  - SMTP relay: `25/tcp` ou `587/tcp`, conforme o servidor/serviço de e-mail utilizado
 - Anexar disco de dados dedicado para armazenamento de repositórios e ações (produção).
 - Evitar VM Spot para produção (risco de eviction). Preferir instância regular.
 - Ajustar tamanho da VM conforme usuários/ações (D2ls costuma ser apenas laboratório).
